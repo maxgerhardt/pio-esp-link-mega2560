@@ -24,6 +24,7 @@ In my tests I left this out since I trust in [this Hackaday article](https://hac
 * NodeMCU "RX" ↔ "TX0" of Mega2560
 * NodeMCU "TX" ↔ "RX0" of Mega2560
 * NodeMCU GPIO12 (="D6") ↔ "RESET" of Mega2560
+* NodeMCU GND ↔ GND of Mega2560 (can already implicitly exist if both devices are on the same USB hub)
 
 **Note:** All of these pin assignments are changable in the esp-link's web interface. Alternative UART pins and a different reset GPIO pin can be set. In this example, **all defaults** were used.
 
@@ -75,4 +76,9 @@ Blinky from Mega!
 Blinky from Mega!
 Blinky from Mega!
 Blinky from Mega!
+```
+
+**Note:** If your sketch uses a different baud rate, you can either change the baud rate in the `/console.html` website or by a direct POST request
+```bash
+curl -X POST "http://192.168.0.240/console/baud?rate=9600"
 ```
