@@ -41,6 +41,11 @@ def upload(host:str, hex_path:str):
     for _ in range(maxtries):
         if upload_firmware_file(host, hex_path):
             print("Firmware uploaded successfully")
+            # do instant reboot instead of waiting for bootloader exit timeout
+            try:
+                requests.post('http://' + host + '/console/reset')
+            except:
+                pass
             return True
         else:
             # reset for next try
