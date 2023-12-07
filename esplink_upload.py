@@ -57,7 +57,7 @@ def main():
     parser = argparse.ArgumentParser(description='Upload using esp-link web API.')
     parser.add_argument('-P','--port', help='IP or hostname of esp-link', required=True)
     parser.add_argument('-b','--baud', help='Baud rate (ignored)', required=False)
-    parser.add_argument('-D','--disable-erase', help='Disable erase (ignored)', action='store_const', required=False)
+    parser.add_argument('-D','--disable-erase', help='Disable erase (ignored)', action='store_true', required=False)
     parser.add_argument('file', nargs=1, help='Firmware .hex file')
     args = parser.parse_args()
     if len(args.file) != 1:
