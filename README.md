@@ -36,7 +36,8 @@ In the `platformio.ini` file, use the IP address of your esp-link device instead
 
 ```ini
 upload_port = 192.168.0.240
-extra_scripts = use_esplink.py
+upload_protocol = custom
+upload_command = $PYTHONEXE -u esplink_upload.py -P $UPLOAD_PORT  $SOURCES
 monitor_port = socket://192.168.0.240:2323
 ```
 
